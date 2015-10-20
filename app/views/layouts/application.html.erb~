@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
+  <%= csrf_meta_tags %>
+<%= stylesheet_link_tag "/stylesheets/style.css" %>
+ <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+ 
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ 
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="responsiveslides.min.js"></script>
+</head>
+<body>
+
+  <div class="header">
+  <div class ="container"> 
+    <div class="row">
+      <div class="col-xs-8"> 
+        <ul class="menu"> 
+          <li><%=link_to "Welcome", welcome_path() %></li> 
+           <li><%=link_to "Portfolio", portfolio_path() %></li> 
+          <li><%=link_to "Blog", blog_path() %></li> 
+          <li><%=link_to "About", about_path() %></li> 
+          <li><%=link_to "Contact", contact_path() %></li> 
+        </ul> 
+      </div> 
+      <div class="col-xs-4"> 
+        <h3 class="re-h3">Ngoc Ty</h3> 
+      </div> 
+    </div> 
+  </div> 
+</div>
+  <%=yield%>
+  <div class="footer"> 
+  <div class="container"> 
+    <ul class="social_media"> 
+      <li><a class="github" href="#">.</a></li> 
+      <li><a class="linkedin" href="#">.</a></li> 
+      <li><a class="twitter" href="#">.</a></li> 
+    </ul> 
+    <div class="clear">
+      <div class = "col-xs-12 text-right">
+    <p>© 2015 Ngoc Ty</p> </div> 
+    </div>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-latest.min.js"></script>
+<script src="//unslider.com/unslider.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function() {
+    $('.banner').unslider({
+	speed: 500,               //  The speed to animate each slide (in milliseconds)
+	delay: 1000,              //  The delay between slide animations (in milliseconds)
+	keys: true,               //  Enable keyboard (left, right) arrow shortcuts
+	dots: true,               //  Display dot navigation
+	fluid: true              //  Support responsive design. May break non-responsive designs
+	});
+});
+
+function checkEmail() {
+ var email = document.getElementById('email');
+ var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+ if (!filter.test(email.value)) { alert('Email không hợp lệ.\nExample@gmail.com');
+	 email.focus;
+	 return false; }
+ else{ alert('Đăng nhập thành công.');
+window.location="<%=welcome_path() %>";
+ 	}
+ }
+ </script>
+</body>
+</html>
